@@ -15,7 +15,7 @@ function parsePath(path) {
     };
 }
 
-module.exports = function ( path, callback ) {
+module.exports = function ( path, filePath, callback ) {
 
     var i = 0;
 
@@ -23,7 +23,7 @@ module.exports = function ( path, callback ) {
 
         ++i;
 
-        glob(`${ path }/ejs/*.ejs`, {}, function (er, files) {
+        glob(filePath, {}, function (er, files) {
             if ( i >= files.length) {
                 if ( callback ) callback( i );
                 i = 0;
